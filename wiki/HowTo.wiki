@@ -1,0 +1,18 @@
+#summary How to add a dependency in your maven project in order to use GData Api.
+
+== Add mandubian-mvn repository to your pom.xml repositories=
+{{{
+<repository>
+  <id>mandubian-mvn</id>
+  <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repo/{version}</url>
+</repository>
+}}}
+
+== Add dependencies to your pom.xml dependencies=
+{{{
+<dependency>
+  <groupId>com.google.gdata</groupId>
+  <artifactId>gdata-core</artifactId>
+  <version>1.0</version>
+</dependency>
+}}}
