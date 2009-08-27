@@ -1,4 +1,5 @@
 #summary How to add a dependency in your maven project in order to use GData Api.
+#labels Phase-Deploy,Featured
 
 == Add mandubian-mvn repository to your pom.xml repositories=
 {{{
