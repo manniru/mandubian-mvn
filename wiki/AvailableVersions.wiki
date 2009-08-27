@@ -7,7 +7,7 @@ The mavenized JARs correspond to Google Data APIs release you can download on [h
 == Version 1.36.0 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.36.0.zip here]
 
-|| *Maven GroupId* || com.google.gdata ||
+|| *Maven GroupID* || com.google.gdata ||
 
 || *Maven ArtefactID * || *Maven/Google Version* ||
 || gdata-base || 1.0 || 
