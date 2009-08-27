@@ -9,6 +9,13 @@
 </repository>
 }}}
 
+_{version} should be replaced by a version number.
+For example:_
+{{{
+http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repo/1.36.0
+}}}
+
+
 == Add dependencies to your pom.xml dependencies=
 {{{
 <dependency>
