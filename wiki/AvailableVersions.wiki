@@ -1,8 +1,8 @@
 #summary The available Google Data Api mavenized versions.
 #labels Featured
 
-= Available GoogleDataAPI Versions =
-The mavenized JARs correspond to Google Data APIs release you can download on [http://code.google.com/p/gdata-java-client/downloads/list gdata-java-client]
+= Mavenized GoogleDataAPI Versions =
+The mavenized JARs correspond to Google Data APIs releases you can download on [http://code.google.com/p/gdata-java-client/downloads/list gdata-java-client]
 
 == Version 1.36.0 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.36.0.zip here]
