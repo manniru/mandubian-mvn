@@ -4,36 +4,37 @@
 = Mavenized GoogleDataAPI Versions =
 The mavenized JARs correspond to Google Data APIs releases you can download on [http://code.google.com/p/gdata-java-client/downloads/list gdata-java-client]
 
-== Version 1.36.0 ==
+== Google Delivery Version 1.36.0 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.36.0.zip here]
 
 || *Maven GroupID* || com.google.gdata ||
+|| *Maven Version* || 1.36.0 ||
 
-|| *Maven ArtefactID * || *Maven/Google Version* ||
-|| gdata-base || 1.0 || 
-|| gdata-blogger || 2.0 ||
-|| gdata-blogger-meta || 2.0 ||
-|| gdata-books || 1.0 ||
-|| gdata-books-meta || 1.0 ||
-|| gdata-calendar || 2.0 ||
-|| gdata-calendar-meta || 2.0 ||
-|| gdata-client || 1.0 ||
-|| gdata-client-meta || 1.0 ||
-|| gdata-codesearch || 2.0 ||
-|| gdata-codesearch-meta || 2.0 ||
-|| gdata-contacts || 3.0 ||
-|| gdata-contacts-meta || 3.0 ||
-|| gdata-core || 1.0 ||
-|| gdata-docs || 3.0 ||
-|| gdata-docs-meta || 3.0 ||
-|| gdata-finance || 2.0 ||
-|| gdata-finance-meta || 2.0 ||
-|| gdata-health || 2.0 ||
-|| gdata-health-meta || 2.0 ||
-|| gdata-media || 1.0 ||
-|| gdata-photos || 3.0 ||
-|| gdata-photos-meta || 3.0 ||
-|| gdata-spreadsheet || 3.0 ||
-|| gdata-spreadsheet-meta || 3.0 ||
-|| gdata-youtube || 2.0 ||
-|| gdata-youtube-meta || 2.0 ||
+|| *Maven ArtefactID * || *Google API Version* ||
+|| gdata-base-1.0 || 1.0 || 
+|| gdata-blogger-2.0 || 2.0 ||
+|| gdata-blogger-meta-2.0 || 2.0 ||
+|| gdata-books-1.0 || 1.0 ||
+|| gdata-books-meta-1.0 || 1.0 ||
+|| gdata-calendar-2.0 || 2.0 ||
+|| gdata-calendar-meta-2.0 || 2.0 ||
+|| gdata-client-1.0 || 1.0 ||
+|| gdata-client-meta-1.0 || 1.0 ||
+|| gdata-codesearch-2.0 || 2.0 ||
+|| gdata-codesearch-meta-2.0 || 2.0 ||
+|| gdata-contacts-3.0 || 3.0 ||
+|| gdata-contacts-meta-3.0 || 3.0 ||
+|| gdata-core-1.0 || 1.0 ||
+|| gdata-docs-3.0 || 3.0 ||
+|| gdata-docs-meta-3.0 || 3.0 ||
+|| gdata-finance-2.0 || 2.0 ||
+|| gdata-finance-meta-2.0 || 2.0 ||
+|| gdata-health-2.0 || 2.0 ||
+|| gdata-health-meta-2.0 || 2.0 ||
+|| gdata-media-1.0 || 1.0 ||
+|| gdata-photos-3.0 || 3.0 ||
+|| gdata-photos-meta-3.0 || 3.0 ||
+|| gdata-spreadsheet-3.0 || 3.0 ||
+|| gdata-spreadsheet-meta-3.0 || 3.0 ||
+|| gdata-youtube-2.0 || 2.0 ||
+|| gdata-youtube-meta-2.0 || 2.0 ||
