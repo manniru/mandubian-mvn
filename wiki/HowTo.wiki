@@ -5,7 +5,7 @@
 {{{
 <repository>
   <id>mandubian-mvn</id>
-  <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repo</url>
+  <url>http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository</url>
 </repository>
 }}}
 
