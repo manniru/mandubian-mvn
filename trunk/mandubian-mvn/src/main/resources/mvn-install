@@ -1,0 +1,16 @@
+#!/bin/bash
+VERSION="1.37.0"
+
+case $# in 
+2)	 VERSION=$1 ; DIR=$2 ;; 
+*)	 echo "usage: $0 GDATA_VERSION DIRECTORY_CONTAINING_JARS" ; exit 1;; 
+esac
+
+cd $DIR
+for i in `ls *.jar` 
+do
+echo INSTALLING $i
+mvn install:install-file -Dfile=$i -DgroupId=com.google.gdata -DartifactId=${i%.jar} -Dversion=$VERSION -Dpackaging=jar -DgeneratePom=true -DcreateChecksum=true
+done
+
+     
