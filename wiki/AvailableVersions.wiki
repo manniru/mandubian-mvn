@@ -5,6 +5,27 @@
 The mavenized JARs correspond to Google Data APIs releases you can download on [http://code.google.com/p/gdata-java-client/downloads/list gdata-java-client].
 I ensure mavenized Jars are the exact JARs provided by Google.
 
+== Google Delivery Version 1.41.1 ==
+You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.41.1.zip here]
+
+|| *Maven GroupID* || com.google.gdata ||
+|| *Maven Version* || 1.41.1 ||
+
+
+== Google Delivery Version 1.41.0 ==
+You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.41.0.zip here]
+
+|| *Maven GroupID* || com.google.gdata ||
+|| *Maven Version* || 1.41.0 ||
+
+
+== Google Delivery Version 1.40.3 ==
+You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.40.3.zip here]
+
+|| *Maven GroupID* || com.google.gdata ||
+|| *Maven Version* || 1.40.3 ||
+
+
 == Google Delivery Version 1.40.2 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.40.2.zip here]
 
