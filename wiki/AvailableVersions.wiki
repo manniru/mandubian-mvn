@@ -11,6 +11,10 @@ You can download official archive [http://gdata-java-client.googlecode.com/files
 || *Maven GroupID* || com.google.gdata ||
 || *Maven Version* || 1.41.1 ||
 
+|| *Maven ArtefactIDs *|| 
+|| Same as 1.40.2 ||
+
+----
 
 == Google Delivery Version 1.41.0 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.41.0.zip here]
@@ -18,6 +22,10 @@ You can download official archive [http://gdata-java-client.googlecode.com/files
 || *Maven GroupID* || com.google.gdata ||
 || *Maven Version* || 1.41.0 ||
 
+|| *Maven ArtefactIDs *|| 
+|| Same as 1.40.2 ||
+
+----
 
 == Google Delivery Version 1.40.3 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.40.3.zip here]
@@ -25,9 +33,14 @@ You can download official archive [http://gdata-java-client.googlecode.com/files
 || *Maven GroupID* || com.google.gdata ||
 || *Maven Version* || 1.40.3 ||
 
+|| *Maven ArtefactIDs *|| 
+|| Same as 1.40.2 ||
+
+----
 
 == Google Delivery Version 1.40.2 ==
 You can download official archive [http://gdata-java-client.googlecode.com/files/gdata-src.java-1.40.2.zip here]
+
 
 || *Maven GroupID* || com.google.gdata ||
 || *Maven Version* || 1.40.2 ||
