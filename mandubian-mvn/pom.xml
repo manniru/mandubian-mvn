@@ -12,6 +12,180 @@
     <packaging>pom</packaging>
     <name>Mandubian Maven Google Repository</name>
     <version>0.0.1-SNAPSHOT</version>
-    <url></url>
+    <description>
+    	Maven project generating a Maven Repository + Nexus Indexing with Google Data Apis 
+    	The Maven repository is stored into SVN googlecode source repository.
+    	For further information and instructions, please go to http://code.google.com/p/mandubian-mvn/
+    	
+		Directly and deeply inspired by David Carter who gratefully proposed
+		his Ruby script on his site http://github.com/dcarter/Google-Data-APIs-Mavenized
+		(great idea to use TattleTale to get dependencies!!!)
+		
+		I decided to rewrite his Ruby script in Groovy because I wanted everything to 
+		be written in the Maven+Java mood: maven generating maven in a summary...
+		
+		INSTRUCTIONS: just change "gdata.version" property below to generate new GData version dependencies 
+    </description>
 
+	<repositories>
+		<repository>
+			<id>sonatype forge</id>
+			<url>http://repository.sonatype.org/content/groups/forge</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<!-- just change this version and call "mvn install" to generate the new poms and re-index the repository -->
+		<gdata.version>1.41.3</gdata.version>
+	</properties>
+	
+	<pluginRepositories>
+		<pluginRepository> 
+			<id>jboss</id>
+			<url>http://repository.jboss.org/maven2</url> 
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<!-- downloads gdata-src.java-${gdata.version}.zip into ${project.build.directory}/packed 
+				and unpacks it into ${project.build.directory}/unpacked -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<configuration>
+							<tasks>
+								<mkdir dir="${project.build.directory}/packed" />
+								<get
+									src="http://gdata-java-client.googlecode.com/files/gdata.java-${gdata.version}.zip"
+									dest="${project.build.directory}/packed/gdata-src.java-${gdata.version}.zip"
+									verbose="true" usetimestamp="true" />
+								<unzip
+									src="${project.build.directory}/packed/gdata-src.java-${gdata.version}.zip"
+									dest="${project.build.directory}/unpacked" />
+								<move todir="${project.build.directory}/unpacked/gdata/java/lib">
+									<fileset dir="${project.build.directory}/unpacked/gdata/java/deps">
+										<include name="*.jar" />
+									</fileset>
+								</move>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- uses Jboss Tattletale http://www.jboss.org/tattletale to analyse GData dependencies -->
+			<plugin>
+				<groupId>org.jboss.tattletale</groupId>
+				<artifactId>tattletale-maven</artifactId>
+				<version>1.1.0.Final</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<source>${project.build.directory}/unpacked/gdata/java/lib</source>
+					<destination>${project.build.directory}/tattletaled</destination>
+				</configuration>
+			</plugin>
+			<!-- launches Groovy script BuildPomFromDeps which generates all Pom from Tattletale dependencies  -->			
+			<plugin>
+				<groupId>org.codehaus.groovy.maven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>${project.basedir}/src/main/resources/BuildPomFromDeps.groovy</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> 
+			<!-- launches Nexus Indexer  -->						
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1.1</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<includeProjectDependencies>false</includeProjectDependencies>
+							<includePluginDependencies>true</includePluginDependencies>
+							<executableDependency>
+								<groupId>org.sonatype.nexus</groupId>
+								<artifactId>nexus-indexer</artifactId>
+							</executableDependency>
+							<mainClass>org.sonatype.nexus.index.cli.NexusIndexerCli</mainClass>
+							<arguments>
+								<argument>-r</argument>
+								<argument>${project.basedir}/repository</argument>
+								<argument>-i</argument>
+								<argument>${project.build.directory}/.index</argument>
+								<argument>-d</argument>
+								<argument>${project.basedir}/repository/.index</argument>
+								<argument>-n</argument>
+								<argument>mandubian-nexus</argument>
+								<argument>-t</argument>
+								<argument>full</argument>
+								<argument>-s</argument>
+								<argument>true</argument>
+								<argument>-l</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.sonatype.nexus</groupId>
+						<artifactId>nexus-indexer</artifactId>
+						<version>2.0.6</version>
+						<type>jar</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+
+	</build>
+	
+	<developers>
+		<developer>
+			<name>Pascal Voitot</name>
+			<organization>mandubian</organization>
+			<url>http://code.google.com/p/mandubian-mvn/</url>
+		</developer>
+	</developers>
+	
+	<organization>
+		<name>mandubian</name>
+		<url>http://www.mandubian.org</url>
+	</organization>
+	
+	<licenses>
+		<license>
+			<name>Lesser General Public License (LGPL)</name>
+		</license>
+	</licenses>
+		
+	<contributors>
+		<contributor>
+			<name>David Carter</name>
+			<url>http://github.com/dcarter/Google-Data-APIs-Mavenized</url>
+		</contributor>
+	</contributors>
 </project>
