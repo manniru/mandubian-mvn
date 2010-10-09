@@ -169,6 +169,25 @@ $depsStr
 		while ((s = stdout.readLine()) != null) {
 		    println(s);
 		}
+		
+		proc = runtime.exec("""\
+				mvn deploy:deploy-file \
+					-Dfile=${project.build.directory}/unpacked/gdata/java/lib-src/${artifactId}-src.jar \
+		        	-DgroupId=${gdataGroupId} \
+					-DartifactId=${artifactId} \
+					-Dversion=${gdataVersion} \
+					-Dpackaging=jar \
+					-DgeneratePom=false \
+					-Durl=file://${repoDir} \
+					-DpomFile=target/poms/${artifactId}-${gdataVersion}.pom \
+					-Dclassifier=sources \
+					""")
+						
+		stdout = new BufferedReader (
+		    new InputStreamReader(proc.getInputStream()));
+		while ((s = stdout.readLine()) != null) {
+		    println(s);
+		}
 	}
 	catch(IOException ex){
 		ex.printStacktrace();
