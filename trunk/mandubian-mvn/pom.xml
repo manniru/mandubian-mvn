@@ -36,7 +36,7 @@
 
 	<properties>
 		<!-- just change this version and call "mvn install" to generate the new poms and re-index the repository -->
-		<gdata.version>1.41.3</gdata.version>
+		<gdata.version>1.41.5</gdata.version>
 	</properties>
 	
 	<pluginRepositories>
@@ -61,10 +61,10 @@
 								<mkdir dir="${project.build.directory}/packed" />
 								<get
 									src="http://gdata-java-client.googlecode.com/files/gdata.java-${gdata.version}.zip"
-									dest="${project.build.directory}/packed/gdata-src.java-${gdata.version}.zip"
+									dest="${project.build.directory}/packed/gdata.java-${gdata.version}.zip"
 									verbose="true" usetimestamp="true" />
 								<unzip
-									src="${project.build.directory}/packed/gdata-src.java-${gdata.version}.zip"
+									src="${project.build.directory}/packed/gdata.java-${gdata.version}.zip"
 									dest="${project.build.directory}/unpacked" />
 								<move todir="${project.build.directory}/unpacked/gdata/java/lib">
 									<fileset dir="${project.build.directory}/unpacked/gdata/java/deps">
